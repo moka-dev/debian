@@ -46,11 +46,11 @@ d-i netcfg/use_autoconfig boolean false
 # Static network configuration.
 #
 # IPv4 example
-d-i netcfg/get_ipaddress string 192.168.1.106
-d-i netcfg/get_netmask string 255.255.255.0
-d-i netcfg/get_gateway string 192.168.1.254
-d-i netcfg/get_nameservers string 192.168.1.254
-d-i netcfg/confirm_static boolean true
+# d-i netcfg/get_ipaddress string 192.168.1.106
+# d-i netcfg/get_netmask string 255.255.255.0
+# d-i netcfg/get_gateway string 192.168.1.254
+# d-i netcfg/get_nameservers string 192.168.1.254
+# d-i netcfg/confirm_static boolean true
 #
 # IPv6 example
 #d-i netcfg/get_ipaddress string fc00::2
@@ -62,13 +62,13 @@ d-i netcfg/confirm_static boolean true
 # Any hostname and domain names assigned from dhcp take precedence over
 # values set here. However, setting the values still prevents the questions
 # from being shown, even if values come from dhcp.
-# d-i netcfg/get_hostname string eglise-mbrainz
-# d-i netcfg/get_domain string eglise
+# d-i netcfg/get_hostname string moka
+# d-i netcfg/get_domain string eqx
 
 # If you want to force a hostname, regardless of what either the DHCP
 # server returns or what the reverse DNS entry for the IP is, uncomment
 # and adjust the following line.
-d-i netcfg/hostname string mbrainz
+# d-i netcfg/hostname string 
 
 # Disable that annoying WEP key dialog.
 # d-i netcfg/wireless_wep string
@@ -167,7 +167,7 @@ d-i partman-lvm/device_remove_lvm boolean true
 d-i partman-md/device_remove_md boolean true
 d-i partman-lvm/confirm boolean true
 d-i partman-auto-lvm/guided_size string max
-d-i partman-auto-lvm/new_vg_name string mbrainz
+d-i partman-auto-lvm/new_vg_name string moka
 #d-i partman-auto/disk string /dev/sda
 d-i partman-auto/choose_recipe select boot-root
 #d-i partman-crypto/passphrase       password  aabbcc
@@ -187,19 +187,19 @@ boot-root :: \
   . \
   8192 8192 8192 linux-swap \
           $lvmok{ } lv_name{ swap } \
-          in_vg { mbrainz } \
+          in_vg { moka } \
           method{ swap } format{ } \
   . \
   15360 15360 15360 ext4 \
 	  $lvmok{ } lv_name{ log } \
-          in_vg { mbrainz } \
+          in_vg { moka } \
           method{ format } format{ } \
           use_filesystem{ } filesystem{ ext4 } \
           mountpoint{ /var/log } \
   . \
   307200 307200 100000000000 ext4 \
           $lvmok{ } lv_name{ root } \
-          in_vg { mbrainz } \
+          in_vg { moka } \
           method{ format } format{ } \
           use_filesystem{ } filesystem{ ext4 } \
           mountpoint{ / } \
