@@ -95,7 +95,7 @@ d-i netcfg/use_autoconfig boolean false
 # Default value for the mirror protocol: http.
 #d-i mirror/protocol string ftp
 d-i mirror/country string manual
-d-i mirror/http/hostname string http.us.debian.org
+d-i mirror/http/hostname string ftp.fr.debian.org
 d-i mirror/http/directory string /debian
 # d-i mirror/http/proxy string
 
